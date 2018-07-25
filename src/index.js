@@ -49,8 +49,4 @@ function moveTheGroupToH2(row){
   row.parentNode.removeChild(row)
 }
 
-
-
-
-
 })
