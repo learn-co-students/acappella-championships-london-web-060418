@@ -13,7 +13,7 @@ class aCappellaController {
       <td>${group.name}</td>
       <td>${group.membership}</td>
       <td>${group.college.division}</td>
-        <td><img src='./assets/trophy.png' class="trophy" data-id=${group.id}/></td>
+        <td><img src='./assets/trophy.png' class="trophy" id=${group.id}></td>
       `
 
       let trophyButton = tableRow.querySelector('.trophy')
@@ -24,12 +24,20 @@ class aCappellaController {
     })
   }
 
-  static crownGroupAsWinner(group) {
-    console.log('oh buoy');
-    const winnerSection = document.querySelector('#winner')
-    Adapter.getGroup(e.target.id)
-    .then(response => {
-      winnerSection.innerText = `Winner: ${response.name}`
-    })
+  static crownGroupAsWinner(e) {
+    let id = e.target.id;
+    console.log(e.target.parentNode.parentNode)
+    console.log(id);
+    // const winnerSection = document.querySelector('#winner')
+    Adapter.getGroup(id)
+    // .then(response => {
+    //   winnerSection.innerText = `Winner: ${response.name}`
+    // })
+    aCappellaController.removeGroup()
   }
+
+  static removeGroup() {
+    //remove row from the DOM
+  }
+
 }

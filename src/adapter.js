@@ -8,10 +8,14 @@ class Adapter {
   }
 
   static getGroup(id) {
+    const winnerSection = document.querySelector('#winner')
     const url = `http://localhost:3000/a_cappella_groups/${id}`
     fetch(url)
     .then(response => response.json())
-    .then(res => console.log(res);)
+    .then(response => {
+      console.log(response);
+      winnerSection.innerText = `Winner: ${response.college.name} ${response.name}`
+    })
   }
 
 
